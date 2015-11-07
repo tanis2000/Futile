@@ -1,0 +1,203 @@
+{"frames": {
+
+"Debug/Circle":
+{
+	"frame": {"x":1,"y":1,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"Debug/Square":
+{
+	"frame": {"x":1,"y":130,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"Debug/Triangle":
+{
+	"frame": {"x":1,"y":259,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"Fonts/DiscoTiny":
+{
+	"frame": {"x":1,"y":388,"w":64,"h":28},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":28},
+	"sourceSize": {"w":64,"h":64}
+},
+"Fonts/TempestaFiveCompressed":
+{
+	"frame": {"x":1,"y":417,"w":128,"h":63},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":63},
+	"sourceSize": {"w":128,"h":128}
+},
+"Fonts/TempestaFiveCondensed":
+{
+	"frame": {"x":130,"y":1,"w":128,"h":74},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":74},
+	"sourceSize": {"w":128,"h":128}
+},
+"Fonts/TempestaFiveCondensedBold":
+{
+	"frame": {"x":259,"y":1,"w":128,"h":85},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":85},
+	"sourceSize": {"w":128,"h":128}
+},
+"Fonts/TempestaSevenCondensed":
+{
+	"frame": {"x":130,"y":76,"w":127,"h":110},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":127,"h":110},
+	"sourceSize": {"w":128,"h":128}
+},
+"Fonts/TempestaSevenCondensedBold":
+{
+	"frame": {"x":258,"y":87,"w":128,"h":98},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":98},
+	"sourceSize": {"w":128,"h":128}
+},
+"Game/enemy":
+{
+	"frame": {"x":66,"y":388,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"Game/friend":
+{
+	"frame": {"x":83,"y":388,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"Game/green-16":
+{
+	"frame": {"x":100,"y":388,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"Game/grey-16":
+{
+	"frame": {"x":117,"y":388,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"Game/heart":
+{
+	"frame": {"x":1,"y":481,"w":13,"h":12},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":3,"w":13,"h":12},
+	"sourceSize": {"w":16,"h":16}
+},
+"Game/player":
+{
+	"frame": {"x":1,"y":494,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"UI/ArrowsIcon":
+{
+	"frame": {"x":18,"y":481,"w":61,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":12,"w":61,"h":30},
+	"sourceSize": {"w":70,"h":50}
+},
+"UI/ControllerIcon":
+{
+	"frame": {"x":130,"y":405,"w":58,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":3,"w":58,"h":44},
+	"sourceSize": {"w":70,"h":50}
+},
+"UI/Rounded1":
+{
+	"frame": {"x":80,"y":481,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"UI/Rounded2":
+{
+	"frame": {"x":97,"y":481,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"UI/Rounded2_Border":
+{
+	"frame": {"x":114,"y":481,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"UI/Rounded2_BorderFilled":
+{
+	"frame": {"x":130,"y":450,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"UI/Rounded2_InnerShadow":
+{
+	"frame": {"x":131,"y":467,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"UI/Rounded3":
+{
+	"frame": {"x":147,"y":450,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"UI/WASDIcon":
+{
+	"frame": {"x":148,"y":467,"w":61,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":12,"w":61,"h":30},
+	"sourceSize": {"w":70,"h":50}
+}},
+"meta":{
+	"app": "Packrat Atlas Generator github.com/MattRix/Packrat",
+	"version": "1.0",
+	"image": "Assets/Platformer/Resources/Atlases/MainAtlas.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1"
+}
+}
