@@ -28,6 +28,12 @@ namespace Platformer
 			s.scale = 0.25f;
 			s.SetAnchor(0f, 0f);
 			s.SetPosition(0, 0);
+
+			ListenForUpdate(HandleUpdate);
+		}
+
+		public void HandleUpdate() {
+			SetPosition(GetPosition() + new Vector2(-1, 0));
 		}
 
 	}
