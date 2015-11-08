@@ -10,6 +10,9 @@ namespace Platformer
 
 		public ComponentList components;
 
+		private Collider collider;
+		public Quad quad;
+
 		// Position in grid space
 		public int cx;
 		public int cy;
@@ -78,13 +81,13 @@ namespace Platformer
 			// X component
 			xr+=dx;
 			dx*=frictX;
-			if( HasCollision(cx-1,cy) && xr<=0.3f ) {
+			if( HasCollision(cx-1,cy) && xr<=0.5f ) {
 				dx = 0;
-				xr = 0.3f;
+				xr = 0.5f;
 			}
-			if( HasCollision(cx+1,cy) && xr>=0.7f ) {
+			if( HasCollision(cx+1,cy) && xr>=0.5f ) {
 				dx = 0;
-				xr = 0.7f;
+				xr = 0.5f;
 			}
 			while( xr<0 ) {
 				cx--;
@@ -96,17 +99,21 @@ namespace Platformer
 			}
 			
 			// Y component
-			dy+=gravity;
+			if (this is Block) {
+			} else {
+				dy+=gravity;
+			}
 			yr+=dy;
 			dy*=frictY;
-			if( HasCollision(cx,cy-1) && yr<=0.4f ) {
+			if( HasCollision(cx,cy+1) && yr>=0.4f ) {
 				dy = 0;
 				yr = 0.4f;
 			}
-			if( HasCollision(cx,cy+1) && yr>=0.5f ) {
+			if( HasCollision(cx,cy-1) && yr<=0.5f ) {
 				dy  = 0;
 				yr = 0.5f;
 			}
+			
 			while( yr<0 ) {
 				cy--;
 				yr++;
@@ -115,10 +122,20 @@ namespace Platformer
 				cy++;
 				yr--;
 			}
-			
-			
+
 			xx = Mathf.FloorToInt((cx+xr)*Config.GRID);
 			yy = Mathf.FloorToInt((cy+yr)*Config.GRID);
+
+			if (collider != null) {
+				collider.position.x = xx;
+				collider.position.y = yy;
+				quad.MinX = this.collider.Left;
+				quad.MinY = this.collider.Bottom;
+				quad.MaxX = this.collider.Right;
+				quad.MaxY = this.collider.Top;
+				Debug.Log ("XX: " + xx + ", YY: " + yy + ", CX: " + cx + ", CY: "+cy + ", XR: "+xr+", YR: "+yr+ ", L: " +this.collider.Left + ", B: " + this.collider.Bottom + ", R: " + this.collider.Right + ", T: "+ this.collider.Top);
+				Debug.Log ("MinX: "+quad.MinX+", MinY: "+quad.MinY+", MaxX: "+quad.MaxX+", MaxY: "+quad.MaxY);
+			}
 		}
 		
 		public void SetPosition (float x, float y)
@@ -133,8 +150,7 @@ namespace Platformer
 		
 		public void SetPosition (Vector2 pos)
 		{
-			xx = pos.x;
-			yy = pos.y;
+			SetPosition(pos.x, pos.y);
 		}
 		
 		public Vector2 GetPosition ()
@@ -157,7 +173,30 @@ namespace Platformer
 		
 		public bool OnGround ()
 		{
-			return HasCollision (cx, cy + 1) && yr >= 0.5;
+			return HasCollision (cx, cy - 1) && yr <= 0.5;
+		}
+
+		virtual public void HandleCollision(Collider other) {
+			Debug.Log("Other: " + other + ", E: " + other.entity);
+		}
+
+		public Collider Collider
+		{
+			get { return collider; }
+			set
+			{
+				if (value == collider)
+					return;
+				#if DEBUG
+				if (value.entity != null)
+					Debug.LogError("Setting an Entity's Collider to a Collider already in use by another Entity");
+				#endif
+				if (collider != null)
+					collider.Removed();
+				collider = value;
+				if (collider != null)
+					collider.Added(this);
+			}
 		}
 
 	}

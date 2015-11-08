@@ -22,6 +22,12 @@ namespace Platformer
 			Hero hero = new Hero(entityContainer);
 			hero.SetPosition(1 * Config.GRID, 1 * Config.GRID); 
 			hero.AddToContainer();
+
+			FSprite s = new FSprite("Debug/Square");
+			AddChild(s);
+			s.scale = 0.25f;
+			s.SetAnchor(0f, 0f);
+			s.SetPosition(0, 0);
 		}
 
 	}
