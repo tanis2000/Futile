@@ -21,7 +21,15 @@ namespace Platformer
 		void HandleUpdate()
 		{
 			int entityCount = entities.Count;
-			
+
+			quadTree.Clear();
+			for(int e = entityCount-1; e>=0; e--)//reverse order so removals ain't no thang
+			{
+				if (entities[e].Collider != null) {
+					quadTree.Insert(entities[e].Collider, entities[e].quad);
+				}
+			}
+
 			for(int e = entityCount-1; e>=0; e--)//reverse order so removals ain't no thang
 			{
 				if (entities[e].Collider != null) {

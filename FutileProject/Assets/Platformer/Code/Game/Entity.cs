@@ -125,17 +125,7 @@ namespace Platformer
 
 			xx = Mathf.FloorToInt((cx+xr)*Config.GRID);
 			yy = Mathf.FloorToInt((cy+yr)*Config.GRID);
-
-			if (collider != null) {
-				collider.position.x = xx;
-				collider.position.y = yy;
-				quad.MinX = this.collider.Left;
-				quad.MinY = this.collider.Bottom;
-				quad.MaxX = this.collider.Right;
-				quad.MaxY = this.collider.Top;
-				Debug.Log ("XX: " + xx + ", YY: " + yy + ", CX: " + cx + ", CY: "+cy + ", XR: "+xr+", YR: "+yr+ ", L: " +this.collider.Left + ", B: " + this.collider.Bottom + ", R: " + this.collider.Right + ", T: "+ this.collider.Top);
-				Debug.Log ("MinX: "+quad.MinX+", MinY: "+quad.MinY+", MaxX: "+quad.MaxX+", MaxY: "+quad.MaxY);
-			}
+			UpdateCollider();
 		}
 		
 		public void SetPosition (float x, float y)
@@ -146,6 +136,7 @@ namespace Platformer
 			cy = Mathf.FloorToInt (yy / Config.GRID);
 			xr = (xx - cx * Config.GRID) / Config.GRID;
 			yr = (yy - cy * Config.GRID) / Config.GRID;
+			UpdateCollider();
 		}
 		
 		public void SetPosition (Vector2 pos)
@@ -199,5 +190,18 @@ namespace Platformer
 			}
 		}
 
+		public void UpdateCollider()
+		{
+			if (collider != null) {
+				collider.position.x = xx;
+				collider.position.y = yy;
+				quad.MinX = this.collider.Left;
+				quad.MinY = this.collider.Bottom;
+				quad.MaxX = this.collider.Right;
+				quad.MaxY = this.collider.Top;
+				//Debug.Log ("XX: " + xx + ", YY: " + yy + ", CX: " + cx + ", CY: "+cy + ", XR: "+xr+", YR: "+yr+ ", L: " +this.collider.Left + ", B: " + this.collider.Bottom + ", R: " + this.collider.Right + ", T: "+ this.collider.Top);
+				//Debug.Log ("MinX: "+quad.MinX+", MinY: "+quad.MinY+", MaxX: "+quad.MaxX+", MaxY: "+quad.MaxY);
+			}
+		}
 	}
 }

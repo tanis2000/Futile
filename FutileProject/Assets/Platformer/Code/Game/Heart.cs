@@ -38,5 +38,11 @@ namespace Platformer
 			body.SetPosition (xx, yy);
 		}
 
+		public override void HandleCollision (Collider other)
+		{
+			base.HandleCollision (other);
+			this.RemoveFromContainer();
+		}
+
 	}
 }
