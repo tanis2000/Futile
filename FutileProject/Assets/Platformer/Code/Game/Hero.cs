@@ -48,7 +48,9 @@ namespace Platformer
 			if( ic.jumpPressed && OnGround() )
 				dy = 0.7f;
 
+			SetPosition(xx, yy);
 			body.SetPosition(xx, yy);
+			Draw.Circle(Collider.Center, Collider.Width/2, Color.white, 10);
 		}
 	}
 }

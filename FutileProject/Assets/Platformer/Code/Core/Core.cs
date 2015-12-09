@@ -56,6 +56,7 @@ namespace Platformer
 	
 		void Update ()
 		{
+			Draw.Clear();
 			MusicPlayer.Update ();
 			audioManager.Update ();
 			playerManager.Update ();

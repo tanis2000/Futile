@@ -15,6 +15,7 @@ namespace Platformer
 			instance = this;
 			entityContainer = new EntityContainer();
 			AddChild(entityContainer);
+			Draw.Initialize(entityContainer);
 
 			map = new Map(50, 20);
 
@@ -30,10 +31,12 @@ namespace Platformer
 			s.SetPosition(0, 0);
 
 			ListenForUpdate(HandleUpdate);
+
 		}
 
 		public void HandleUpdate() {
-			SetPosition(GetPosition() + new Vector2(-1, 0));
+			Draw.SpriteBatch.MoveToFront();
+			entityContainer.SetPosition(entityContainer.GetPosition() + new Vector2(-1, 0));
 		}
 
 	}
