@@ -17,22 +17,22 @@ namespace Platformer
 			blocks = new Block[width*height];
 
 			for (int i = 0 ; i < 10 ; i++) {
-				Block b = new Block(GamePage.instance.entityContainer);
-				b.SetPosition(i * Config.GRID + Config.GRID/2, Config.GRID/2);
+				Block b = new Block();
+				b.Position = new Vector2(i * Config.GRID + Config.GRID/2, Config.GRID/2);
 				blocks[i] = b;
-				b.AddToContainer();
+				Engine.Scene.Add(b);
 			}
 
 			for (int i = 2 ; i < 10 ; i++) {
-				Block b = new Block(GamePage.instance.entityContainer);
-				b.SetPosition(i * Config.GRID + Config.GRID/2, 3*Config.GRID+Config.GRID/2);
+				Block b = new Block();
+				b.Position = new Vector2(i * Config.GRID + Config.GRID/2, 3*Config.GRID+Config.GRID/2);
 				blocks[3*width+i] = b;
-				b.AddToContainer();
+				Engine.Scene.Add(b);
 			}
 
-			Heart h = new Heart(GamePage.instance.entityContainer);
+			/*Heart h = new Heart(GamePage.instance.entityContainer);
 			h.SetPosition(4*Config.GRID, 2 * Config.GRID);
-			h.AddToContainer();
+			h.AddToContainer();*/
 
 		}
 	}

@@ -160,12 +160,30 @@ namespace Platformer
 		{
 			LockMode = ComponentList.LockModes.Locked;
 			foreach (var component in components) {
-				if (component.active) {
+				if (component.Active) {
 					component.Update ();
 				}
 			}
 			LockMode = ComponentList.LockModes.Open;
 		}
+
+		internal void Render()
+		{
+			LockMode = ComponentList.LockModes.Error;
+			foreach (var component in components)
+				if (component.Visible)
+					component.Render();
+			LockMode = ComponentList.LockModes.Open;
+		}
+
+		internal void DebugRender()
+		{
+			LockMode = ComponentList.LockModes.Error;
+			foreach (var component in components)
+				component.DebugRender();
+			LockMode = ComponentList.LockModes.Open;
+		}
+
 		
 		public T Get<T> () where T : Component
 		{

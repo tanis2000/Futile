@@ -20,7 +20,7 @@ namespace Platformer
 			float fadeOutDuration = 0.3f;
 			float fadeInDuration = 0.2f;
 
-			if (Core.instance.currentPage is GamePage) {
+			if (Core.instance.currentPage is Engine) {
 				songToPlay = MENU;
 			} else {
 				/*if (Arena.instance != null) {

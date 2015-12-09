@@ -5,18 +5,18 @@ namespace Platformer
 {
 	public abstract class Collider
 	{
-		public Entity entity { get; private set; }
+		public Entity Entity { get; private set; }
 
-		public Vector2 position;
+		public Vector2 Position;
 		
 		internal virtual void Added (Entity entity)
 		{
-			this.entity = entity;
+			Entity = entity;
 		}
 		
 		internal virtual void Removed ()
 		{
-			this.entity = null;
+			Entity = null;
 		}
 		
 		public bool Collide (Entity entity)
@@ -26,7 +26,7 @@ namespace Platformer
 		
 		public bool Collide (Collider collider)
 		{
-			/*if (collider is Hitbox)
+			if (collider is Hitbox)
 			{
 				return Collide(collider as Hitbox);
 			}
@@ -38,22 +38,22 @@ namespace Platformer
 			{
 				return Collide(collider as ColliderList);
 			}
-			else*/
+			else
 			if (collider is Circle) {
 				return Collide (collider as Circle);
 			} else
 				throw new Exception ("Collisions against the collider type are not implemented!");
 		}
 		
-		//public abstract bool Collide(Vector2 point);
-		//public abstract bool Collide(Rectangle rect);
-		//public abstract bool Collide(Vector2 from, Vector2 to);
-		//public abstract bool Collide(Hitbox hitbox);
-		//public abstract bool Collide(Grid grid);
+		public abstract bool Collide(Vector2 point);
+		public abstract bool Collide(Rect rect);
+		public abstract bool Collide(Vector2 from, Vector2 to);
+		public abstract bool Collide(Hitbox hitbox);
+		public abstract bool Collide(Grid grid);
 		public abstract bool Collide (Circle circle);
-		//public abstract bool Collide(ColliderList list);
+		public abstract bool Collide(ColliderList list);
 		public abstract Collider Clone ();
-		//public abstract void Render(Color color);
+		public abstract void Render(Color color);
 		public abstract float Width { get; set; }
 
 		public abstract float Height { get; set; }
@@ -192,35 +192,35 @@ namespace Platformer
 		
 		public Vector2 AbsolutePosition {
 			get {
-				if (entity != null)
-					return entity.GetPosition () + position;
+				if (Entity != null)
+					return Entity.Position + Position;
 				else
-					return position;
+					return Position;
 			}
 		}
 		
 		public float AbsoluteX {
 			get {
-				if (entity != null)
-					return entity.GetPosition ().x + position.x;
+				if (Entity != null)
+					return Entity.Position.x + Position.x;
 				else
-					return position.x;
+					return Position.x;
 			}
 		}
 		
 		public float AbsoluteY {
 			get {
-				if (entity != null)
-					return entity.GetPosition ().y + position.y;
+				if (Entity != null)
+					return Entity.Position.y + Position.y;
 				else
-					return position.y;
+					return Position.y;
 			}
 		}
 		
 		public float AbsoluteTop {
 			get {
-				if (entity != null)
-					return Top + entity.GetPosition ().y;
+				if (Entity != null)
+					return Top + Entity.Position.y;
 				else
 					return Top;
 			}
@@ -228,8 +228,8 @@ namespace Platformer
 		
 		public float AbsoluteBottom {
 			get {
-				if (entity != null)
-					return Bottom + entity.GetPosition ().y;
+				if (Entity != null)
+					return Bottom + Entity.Position.y;
 				else
 					return Bottom;
 			}
@@ -237,8 +237,8 @@ namespace Platformer
 		
 		public float AbsoluteLeft {
 			get {
-				if (entity != null)
-					return Left + entity.GetPosition ().x;
+				if (Entity != null)
+					return Left + Entity.Position.x;
 				else
 					return Left;
 			}
@@ -246,8 +246,8 @@ namespace Platformer
 		
 		public float AbsoluteRight {
 			get {
-				if (entity != null)
-					return Right + entity.GetPosition ().x;
+				if (Entity != null)
+					return Right + Entity.Position.x;
 				else
 					return Right;
 			}

@@ -7,27 +7,27 @@ namespace Platformer
 	{
 		public FSprite sprite;
 
-		public Block (EntityContainer entityContainer) : base(entityContainer)
+		public Block () : base()
 		{
 			sprite = new FSprite("Game/green-16");
 		}
 
-		override public void HandleAdded ()
+		override public void Added(Scene scene)
 		{
-			base.HandleAdded ();
-			entityContainer.AddChild (sprite);
+			base.Added(scene);
+			scene.AddChild (sprite);
 		}
 		
-		override public void HandleRemoved ()
+		override public void Removed (Scene scene)
 		{
-			base.HandleRemoved ();
-			sprite.RemoveFromContainer ();
+			base.Removed(scene);
+			sprite.RemoveFromContainer();
 		}
 
 		override public void Update() {
 			base.Update();
 
-			sprite.SetPosition(xx, yy);
+			sprite.SetPosition(Position);
 		}
 
 

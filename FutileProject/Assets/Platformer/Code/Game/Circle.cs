@@ -5,86 +5,86 @@ namespace Platformer
 {
 	public class Circle : Collider
 	{
-		public float radius;
+		public float Radius;
 		
 		public Circle(float radius, float x = 0, float y = 0)
 		{
-			this.radius = radius;
-			position.x = x;
-			position.y = y;
+			Radius = radius;
+			Position.x = x;
+			Position.y = y;
 		}
 		
 		public override float Width
 		{
-			get { return radius * 2; }
-			set { radius = value / 2; }
+			get { return Radius * 2; }
+			set { Radius = value / 2; }
 		}
 		
 		public override float Height
 		{
-			get { return radius * 2; }
-			set { radius = value / 2; }
+			get { return Radius * 2; }
+			set { Radius = value / 2; }
 		}
 		
 		public override float Left
 		{
-			get { return position.x - radius; }
-			set { position.x = value + radius; }
+			get { return Position.x - Radius; }
+			set { Position.x = value + Radius; }
 		}
 		
 		public override float Top
 		{
-			get { return position.y + radius; }
-			set { position.y = value - radius; }
+			get { return Position.y + Radius; }
+			set { Position.y = value - Radius; }
 		}
 		
 		public override float Right
 		{
-			get { return position.x + radius; }
-			set { position.x = value - radius; }
+			get { return Position.x + Radius; }
+			set { Position.x = value - Radius; }
 		}
 		
 		public override float Bottom
 		{
-			get { return position.y - radius; }
-			set { position.y = value + radius; }
+			get { return Position.y - Radius; }
+			set { Position.y = value + Radius; }
 		}
 		
 		public override Collider Clone()
 		{
-			return new Circle(radius, position.x, position.y);
+			return new Circle(Radius, Position.x, Position.y);
 		}
 		
-		/*public override void Render(Color color)
+		public override void Render(Color color)
 		{
-			Draw.Circle(AbsolutePosition, Radius, color, 4);
-		}*/
+			//Draw.Circle(AbsolutePosition, Radius, color, 4);
+		}
 		
 		/*
          *  Checking against other colliders
          */
 		
-		/*public override bool Collide(Vector2 point)
+		public override bool Collide(Vector2 point)
 		{
-			return Monocle.Collide.CircleToPoint(AbsolutePosition, Radius, point);
+			return Platformer.Collide.CircleToPoint(AbsolutePosition, Radius, point);
 		}
 		
-		public override bool Collide(Rectangle rect)
+		public override bool Collide(Rect rect)
 		{
-			return Monocle.Collide.RectToCircle(rect, AbsolutePosition, Radius);
+			return Platformer.Collide.RectToCircle(rect, AbsolutePosition, Radius);
 		}
 		
 		public override bool Collide(Vector2 from, Vector2 to)
 		{
-			return Monocle.Collide.CircleToLine(AbsolutePosition, Radius, from, to);
-		}*/
+			return Platformer.Collide.CircleToLine(AbsolutePosition, Radius, from, to);
+		}
 		
 		public override bool Collide(Circle circle)
 		{
-			return Vector2.Distance(AbsolutePosition, circle.AbsolutePosition) < (radius + circle.radius);
+			return Vector2.Distance(AbsolutePosition, circle.AbsolutePosition) < (Radius + circle.Radius);
 		}
 		
-		/*public override bool Collide(Hitbox hitbox)
+		public override bool Collide(Hitbox hitbox)
 		{
 			return hitbox.Collide(this);
 		}
@@ -97,7 +97,7 @@ namespace Platformer
 		public override bool Collide(ColliderList list)
 		{
 			return list.Collide(this);
-		}*/
+		}
 		
 	}
 }

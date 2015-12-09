@@ -8,17 +8,17 @@ namespace Platformer
 		public FContainer body;
 		public FSprite bodySprite;
 		
-		public Heart (EntityContainer entityContainer) : base(entityContainer)
+		public Heart () : base()
 		{
 			body = new FContainer ();
 			bodySprite = new FSprite ("Game/heart");
 			body.AddChild (bodySprite);
-			
+			/*
 			this.Collider = new Circle (bodySprite.width / 2, xx, yy);
 			this.quad = new Quad(this.Collider.Left, this.Collider.Bottom, this.Collider.Right, this.Collider.Top);
-			entityContainer.quadTree.Insert(Collider, ref quad);
+			entityContainer.quadTree.Insert(Collider, ref quad);*/
 		}
-		
+		/*
 		override public void HandleAdded ()
 		{
 			base.HandleAdded ();
@@ -42,7 +42,7 @@ namespace Platformer
 		{
 			base.HandleCollision (other);
 			this.RemoveFromContainer();
-		}
+		}*/
 
 	}
 }

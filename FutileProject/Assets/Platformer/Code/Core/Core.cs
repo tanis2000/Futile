@@ -31,14 +31,16 @@ namespace Platformer
 		
 			playerManager.Setup ();
 		
-			ShowPage (new GamePage ());
+			Engine engine = new Engine();
+			engine.Initialize();
+			ShowPage (engine);
 		
 			ListenForUpdate (Update);
 		}
 	
 		public void StartGame ()
 		{
-			ShowPage (new GamePage ());
+			ShowPage (new Engine ());
 		}
 	
 		public void ShowPage (Page page)
@@ -69,7 +71,7 @@ namespace Platformer
 	
 		public void Restart ()
 		{
-			ShowPage (new GamePage ());
+			ShowPage (new Engine ());
 		}
 	
 		public void HandleApplicationPause ()

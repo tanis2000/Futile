@@ -267,27 +267,41 @@ public static class Draw
 	}
 
 	#endregion
-/*
+
 	#region Rect
 
 	static public void Rect(float x, float y, float width, float height, Color color)
 	{
-		rect.X = (int)x;
-		rect.Y = (int)y;
-		rect.Width = (int)width;
-		rect.Height = (int)height;
-		SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
+		rect.x = (int)x;
+		rect.y = (int)y;
+		rect.width = (int)width;
+		rect.height = (int)height;
+			FSprite sprite = new FSprite(Pixel);
+			SpriteBatch.AddChild(sprite);
+			sprite.SetAnchor(0, 0);
+			sprite.SetPosition(x, y);
+			sprite.width = width;
+			sprite.height = height;
+			sprite.color = color;
+		//SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
 	}
 
 	static public void Rect(Vector2 position, float width, float height, Color color)
 	{
-		Rect(position.X, position.Y, width, height, color);
+		Rect(position.x, position.y, width, height, color);
 	}
 
-	static public void Rect(Rectangle rect, Color color)
+	static public void Rect(Rect rect, Color color)
 	{
 		Draw.rect = rect;
-		SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
+			FSprite sprite = new FSprite(Pixel);
+			SpriteBatch.AddChild(sprite);
+			sprite.SetAnchor(0, 0);
+			sprite.SetPosition(rect.x, rect.y);
+			sprite.width = rect.width;
+			sprite.height = rect.height;
+			sprite.color = color;
+		//SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
 	}
 
 	static public void Rect(Collider collider, Color color)
@@ -301,36 +315,64 @@ public static class Draw
 
 	static public void HollowRect(float x, float y, float width, float height, Color color)
 	{
-		rect.X = (int)x;
-		rect.Y = (int)y;
-		rect.Width = (int)width;
-		rect.Height = 1;
+		rect.x = (int)x;
+		rect.y = (int)y;
+		rect.width = (int)width;
+		rect.height = 1;
 
-		SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
+			FSprite sprite = new FSprite(Pixel);
+			SpriteBatch.AddChild(sprite);
+			sprite.SetAnchor(0, 0);
+			sprite.SetPosition(rect.x, rect.y);
+			sprite.width = rect.width;
+			sprite.height = rect.height;
+			sprite.color = color;
+		//SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
 
-		rect.Y += (int)height - 1;
+		rect.y += (int)height - 1;
 
-		SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
+			sprite = new FSprite(Pixel);
+			SpriteBatch.AddChild(sprite);
+			sprite.SetAnchor(0, 0);
+			sprite.SetPosition(rect.x, rect.y);
+			sprite.width = rect.width;
+			sprite.height = rect.height;
+			sprite.color = color;
+		//SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
 
-		rect.Y -= (int)height - 1;
-		rect.Width = 1;
-		rect.Height = (int)height;
+		rect.y -= (int)height - 1;
+		rect.width = 1;
+		rect.height = (int)height;
 
-		SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
+			sprite = new FSprite(Pixel);
+			SpriteBatch.AddChild(sprite);
+			sprite.SetAnchor(0, 0);
+			sprite.SetPosition(rect.x, rect.y);
+			sprite.width = rect.width;
+			sprite.height = rect.height;
+			sprite.color = color;
+		//SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
 
-		rect.X += (int)width - 1;
+		rect.x += (int)width - 1;
 
-		SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
+			sprite = new FSprite(Pixel);
+			SpriteBatch.AddChild(sprite);
+			sprite.SetAnchor(0, 0);
+			sprite.SetPosition(rect.x, rect.y);
+			sprite.width = rect.width;
+			sprite.height = rect.height;
+			sprite.color = color;
+		//SpriteBatch.Draw(Pixel.Texture2D, rect, Pixel.Rect, color);
 	}
 
 	static public void HollowRect(Vector2 position, float width, float height, Color color)
 	{
-		HollowRect(position.X, position.Y, width, height, color);
+		HollowRect(position.x, position.y, width, height, color);
 	}
 
-	static public void HollowRect(Rectangle rect, Color color)
+	static public void HollowRect(Rect rect, Color color)
 	{
-		HollowRect(rect.X, rect.Y, rect.Width, rect.Height, color);
+		HollowRect(rect.x, rect.y, rect.width, rect.height, color);
 	}
 
 	static public void HollowRect(Collider collider, Color color)
@@ -339,7 +381,7 @@ public static class Draw
 	}
 
 	#endregion
-
+/*
 	static public void Text(SpriteFont font, string text, Vector2 position, Color color)
 	{
 		Draw.SpriteBatch.DrawString(font, text, Calc.Floor(position), color);

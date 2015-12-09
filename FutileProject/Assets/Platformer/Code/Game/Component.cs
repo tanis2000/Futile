@@ -5,36 +5,75 @@ namespace Platformer
 {
 	public class Component
 	{
-		public Entity entity;
-		public bool active;
-		public bool visible;
+		public Entity Entity { get; private set; }
+		public bool Active;
+		public bool Visible;
 
 		public Component(bool active, bool visible)
 		{
-			this.active = active;
-			this.visible = visible;
+			Active = active;
+			Visible = visible;
 		}
 
 		public virtual void Added(Entity entity)
 		{
-			this.entity = entity;
-		}
-		
-		public virtual void Removed(Entity entity)
-		{
-			this.entity = null;
-		}
-		
-		public virtual void EntityAdded()
-		{
-		}
-		
-		public virtual void EntityRemoved()
-		{
+			Entity = entity;
+			if (Scene != null)
+				Scene.Tracker.ComponentAdded(this);
 		}
 
-		virtual public void Update ()
+		public virtual void Removed(Entity entity)
 		{
+			Entity = null;
+			if (Scene != null)
+				Scene.Tracker.ComponentRemoved(this);
+		}
+
+		public virtual void EntityAdded()
+		{
+			if (Scene != null)
+				Scene.Tracker.ComponentAdded(this);
+		}
+
+		public virtual void EntityRemoved()
+		{
+			Scene.Tracker.ComponentRemoved(this);
+		}
+
+		public virtual void Update()
+		{
+
+		}
+
+		public virtual void Render()
+		{
+
+		}
+
+		public virtual void DebugRender()
+		{
+
+		}
+
+		public virtual void HandleGraphicsReset()
+		{
+
+		}
+
+		public virtual void HandleGraphicsCreate()
+		{
+
+		}
+
+		public void RemoveSelf()
+		{
+			if (Entity != null)
+				Entity.Remove(this);
+		}
+
+		public Scene Scene
+		{
+			get { return Entity != null ? Entity.Scene : null; }
 		}
 	}
 }

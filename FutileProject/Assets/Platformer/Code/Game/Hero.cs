@@ -8,19 +8,19 @@ namespace Platformer
 		public FContainer body;
 		public FSprite bodySprite;
 
-		public Hero (EntityContainer entityContainer) : base(entityContainer)
+		public Hero () : base()
 		{
 			body = new FContainer ();
 			bodySprite = new FSprite ("Game/player");
 			body.AddChild (bodySprite);
-
+			/*
 			this.components.Add(new InputComponent(true, true));
 
 			this.Collider = new Circle(bodySprite.width/2, xx, yy);
 			this.quad = new Quad(this.Collider.Left, this.Collider.Bottom, this.Collider.Right, this.Collider.Top);
-			entityContainer.quadTree.Insert(Collider, ref quad);
+			entityContainer.quadTree.Insert(Collider, ref quad);*/
 		}
-
+		/*
 		override public void HandleAdded ()
 		{
 			base.HandleAdded ();
@@ -52,5 +52,6 @@ namespace Platformer
 			body.SetPosition(xx, yy);
 			Draw.Circle(Collider.Center, Collider.Width/2, Color.white, 10);
 		}
+		*/
 	}
 }
