@@ -34,6 +34,7 @@ namespace Platformer
 			Engine engine = new Engine();
 			engine.Initialize();
 			ShowPage (engine);
+			Engine.Scene = new MainScene(); 
 		
 			ListenForUpdate (Update);
 		}

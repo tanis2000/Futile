@@ -8,17 +8,21 @@ namespace Platformer
 		public FContainer body;
 		public FSprite bodySprite;
 
+		float vx = 0;
+		float vy = 0;
+
 		public Hero () : base()
 		{
 			body = new FContainer ();
+			Engine.Scene.AddChild(body);
 			bodySprite = new FSprite ("Game/player");
 			body.AddChild (bodySprite);
-			/*
-			this.components.Add(new InputComponent(true, true));
 
-			this.Collider = new Circle(bodySprite.width/2, xx, yy);
+			Add(new InputComponent(true, true));
+			Add(new GravityComponent());
+			this.Collider = new Circle(bodySprite.width/2, CenterX, CenterY);
 			this.quad = new Quad(this.Collider.Left, this.Collider.Bottom, this.Collider.Right, this.Collider.Top);
-			entityContainer.quadTree.Insert(Collider, ref quad);*/
+			Engine.Scene.quadTree.Insert(Collider, ref quad);
 		}
 		/*
 		override public void HandleAdded ()
@@ -31,27 +35,28 @@ namespace Platformer
 		{
 			base.HandleRemoved ();
 			body.RemoveFromContainer ();
-		}
+		}*/
 
 		override public void Update() {
 			base.Update();
 
-			InputComponent ic = components.Get<InputComponent>();
+			InputComponent ic = Components.Get<InputComponent>();
 			float speed = 0.04f;
 			
 			if(ic.leftPressed)
-				dx -= speed;
+				vx -= speed;
 			
 			if( ic.rightPressed )
-				dx += speed;
+				vx += speed;
 			
-			if( ic.jumpPressed && OnGround() )
-				dy = 0.7f;
+			if( ic.jumpPressed /*&& OnGround()*/ )
+				vy = 0.7f;
 
-			SetPosition(xx, yy);
-			body.SetPosition(xx, yy);
-			Draw.Circle(Collider.Center, Collider.Width/2, Color.white, 10);
+			Position.x += vx;
+			Position.y += vy;
+			body.SetPosition(Position);
+			Draw.Circle(Collider.AbsolutePosition, Collider.Width/2, Color.white, 10);
 		}
-		*/
+
 	}
 }

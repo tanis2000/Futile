@@ -112,6 +112,8 @@ namespace Platformer
 			}
 
 			//base.Update(gameTime);
+			Platformer.Draw.SpriteBatch.MoveToFront();
+
 		}
 
 		protected void Draw(/*GameTime gameTime*/)

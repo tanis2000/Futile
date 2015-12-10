@@ -10,10 +10,12 @@ namespace Platformer
 		public Block () : base()
 		{
 			sprite = new FSprite("Game/green-16");
+			Collider = new Hitbox(16, 16);
 		}
 
 		override public void Added(Scene scene)
 		{
+			Debug.Log("block added");
 			base.Added(scene);
 			scene.AddChild (sprite);
 		}

@@ -57,7 +57,7 @@ namespace Platformer
 		
 		public override void Render(Color color)
 		{
-			//Draw.Circle(AbsolutePosition, Radius, color, 4);
+			Platformer.Draw.Circle(AbsolutePosition, Radius, color, 4);
 		}
 		
 		/*

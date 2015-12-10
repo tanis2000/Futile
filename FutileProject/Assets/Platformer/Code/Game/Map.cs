@@ -30,9 +30,10 @@ namespace Platformer
 				Engine.Scene.Add(b);
 			}
 
-			/*Heart h = new Heart(GamePage.instance.entityContainer);
-			h.SetPosition(4*Config.GRID, 2 * Config.GRID);
-			h.AddToContainer();*/
+			Heart h = new Heart();
+			h.Position.x = 4*Config.GRID;
+			h.Position.y = 2 * Config.GRID;
+			Engine.Scene.Add(h);
 
 		}
 	}

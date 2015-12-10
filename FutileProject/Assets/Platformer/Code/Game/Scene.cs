@@ -85,6 +85,7 @@ namespace Platformer
 		public virtual void Begin()
 		{
 			Focused = true;
+			Engine.Instance.AddChild(this);
 			foreach (var entity in Entities)
 				entity.SceneBegin();
 		}
@@ -92,6 +93,7 @@ namespace Platformer
 		public virtual void End()
 		{
 			Focused = false;
+			RemoveFromContainer();
 			foreach (var entity in Entities)
 				entity.SceneEnd();
 		}

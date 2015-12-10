@@ -185,10 +185,10 @@ namespace Platformer
 			}
 		}
 		
-		/*public void Render()
+		public void Render()
 		{
-			Render(Color.Red);
-		}*/
+			Render(Color.red);
+		}
 		
 		public Vector2 AbsolutePosition {
 			get {
